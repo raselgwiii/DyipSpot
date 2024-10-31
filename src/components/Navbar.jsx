@@ -135,11 +135,11 @@ const navListMenuItems = [
 // nav list component
 const navListItems = [
   {
-    label: "Account",
+    label: "Home",
     icon: UserCircleIcon,
   },
   {
-    label: "Blocks",
+    label: "Track",
     icon: CubeTransparentIcon,
   },
   {
