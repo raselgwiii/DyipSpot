@@ -2,13 +2,10 @@ import { ComplexNavbar } from "../components/Navbar";
 import SidebarWithContentSeparator from "../components/Sidebar";
 import pin  from "../assets/pin3.png"
 import Map, {Marker} from "react-map-gl";
-
-
 import 'mapbox-gl/dist/mapbox-gl.css';
-
 function Home() {
     return (
-        <div className=" h-screen flex flex-row">
+        <div className="h-screen flex flex-row">
             <SidebarWithContentSeparator/>
             <div className="w-full  flex flex-col relative h-full">
 
@@ -20,14 +17,14 @@ function Home() {
                             longitude: 120.44945048835295,
                             latitude: 16.931683021499,
                             zoom: 17,
-                            bearing: 0,  // Corrected bearing value within 0-360 range
+                            bearing: 0,
                             pitch: 60,
                         }}
                         mapStyle="mapbox://styles/mapbox/standard"  // Corrected style
                     >
 
                         <Marker longitude={120.44945048835295} anchor={"bottom"}  color={"green"} latitude={16.931683021499}>
-                            <img src={pin}/>
+                            <img alt={"defimahe"} src={pin}/>
                         </Marker>
                     </Map>
 
