@@ -26,6 +26,7 @@ import {
   RocketLaunchIcon,
   Bars2Icon,
 } from "@heroicons/react/24/solid";
+import {Link} from "react-router-dom";
 
 // profile menu component
 const profileMenuItems = [
@@ -138,14 +139,17 @@ const navListItems = [
   {
     label: "Home",
     icon: HomeIcon,
+    route: "/"
   },
   {
     label: "Track",
     icon: CubeTransparentIcon,
+    route: "track"
   },
   {
     label: "Settings",
     icon: CodeBracketSquareIcon,
+    route: "settings"
   },
 ];
 
@@ -153,7 +157,7 @@ function NavList() {
   return (
 
       <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center">
-        {navListItems.map(({ label, icon }, key) => (
+        {navListItems.map(({ label, icon, route}, key) => (
             <Typography
                 key={label}
                 as="a"
@@ -162,10 +166,13 @@ function NavList() {
                 color="gray"
                 className="font-medium text-blue-gray-500"
             >
-              <MenuItem className="flex items-center gap-2 lg:rounded-full">
-                {React.createElement(icon, { className: "h-[18px] w-[18px]" })}{" "}
-                <span className="text-gray-900"> {label}</span>
-              </MenuItem>
+           <Link to={route}>
+
+             <MenuItem className="flex items-center gap-2 lg:rounded-full">
+               {React.createElement(icon, { className: "h-[18px] w-[18px]" })}{" "}
+               <span className="text-gray-900"> {label}</span>
+             </MenuItem>
+           </Link>
             </Typography>
         ))}
       </ul>
@@ -192,9 +199,7 @@ export function ComplexNavbar() {
 
           <ProfileMenu />
         </div>
-        {/*<MobileNav open={isNavOpen} className="overflow-scroll">*/}
-        {/*  <NavList />*/}
-        {/*</MobileNav>*/}
+
       </Navbar>
   );
 }
