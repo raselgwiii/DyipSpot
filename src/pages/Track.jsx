@@ -4,11 +4,8 @@ import Map, {Marker} from "react-map-gl";
 import 'mapbox-gl/dist/mapbox-gl.css';
 function Track() {
     return (
-        <div className="h-screen flex flex-row">
-            <div className="w-full  flex flex-col relative h-full">
 
                 <div className="absolute   overflow-hidden h-full  w-full">
-                    <ComplexNavbar/>
                     <Map
                         mapboxAccessToken="pk.eyJ1IjoiamlvdmFuaTEyMyIsImEiOiJjbHl5ZDZhbzcxY2s3Mm5zbG1taWZ1MDBjIn0.1nOWIuN47R6lsU1QXp40KQ"
                         initialViewState={{
@@ -27,9 +24,8 @@ function Track() {
                     </Map>
 
 
-                </div>
 
-            </div>
+
 
         </div>
     );
