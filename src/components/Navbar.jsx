@@ -15,6 +15,7 @@ import {
 import {
   CubeTransparentIcon,
   UserCircleIcon,
+  HomeIcon,
   CodeBracketSquareIcon,
   Square3Stack3DIcon,
   ChevronDownIcon,
@@ -136,7 +137,7 @@ const navListMenuItems = [
 const navListItems = [
   {
     label: "Home",
-    icon: UserCircleIcon,
+    icon: HomeIcon,
   },
   {
     label: "Track",
