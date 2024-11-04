@@ -32,6 +32,7 @@ import {
           shadow={false}
           className="mx-0 flex items-center gap-4 pt-0 pb-8"
         >
+          
           <Avatar
             size="lg"
             variant="circular"

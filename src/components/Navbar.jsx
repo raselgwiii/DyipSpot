@@ -1,4 +1,5 @@
 import React from "react";
+import Logo from '../assets/SpeedLoc (2).png'
 import {
   Navbar,
   MobileNav,
@@ -22,6 +23,7 @@ import {
   Cog6ToothIcon,
   InboxArrowDownIcon,
   LifebuoyIcon,
+TruckIcon,
   PowerIcon,
   RocketLaunchIcon,
   Bars2Icon,
@@ -30,22 +32,6 @@ import {Link} from "react-router-dom";
 
 // profile menu component
 const profileMenuItems = [
-  {
-    label: "My Profile",
-    icon: UserCircleIcon,
-  },
-  {
-    label: "Edit Profile",
-    icon: Cog6ToothIcon,
-  },
-  {
-    label: "Inbox",
-    icon: InboxArrowDownIcon,
-  },
-  {
-    label: "Help",
-    icon: LifebuoyIcon,
-  },
   {
     label: "Sign Out",
     icon: PowerIcon,
@@ -87,7 +73,7 @@ function ProfileMenu() {
                 <MenuItem
                     key={label}
                     onClick={closeMenu}
-                    className={`flex items-center gap-2 rounded ${
+                    className={`flex items-center gap-0 rounded ${
                         isLastItem
                             ? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
                             : ""
@@ -114,23 +100,7 @@ function ProfileMenu() {
 }
 
 // nav list menu
-const navListMenuItems = [
-  {
-    title: "@material-tailwind/html",
-    description:
-        "Learn how to use @material-tailwind/html, packed with rich components and widgets.",
-  },
-  {
-    title: "@material-tailwind/react",
-    description:
-        "Learn how to use @material-tailwind/react, packed with rich components for React.",
-  },
-  {
-    title: "Material Tailwind PRO",
-    description:
-        "A complete set of UI Elements for building faster websites in less time.",
-  },
-];
+
 
 
 
@@ -143,12 +113,12 @@ const navListItems = [
   },
   {
     label: "Track",
-    icon: CubeTransparentIcon,
+    icon: TruckIcon,
     route: "track"
   },
   {
     label: "Settings",
-    icon: CodeBracketSquareIcon,
+    icon: Cog6ToothIcon,
     route: "settings"
   },
 ];
@@ -184,22 +154,19 @@ export function ComplexNavbar() {
 
   const toggleIsNavOpen = () => setIsNavOpen((cur) => !cur);
 
-  React.useEffect(() => {
-    window.addEventListener(
-        "resize",
-        () => window.innerWidth >= 960 && setIsNavOpen(false),
-    );
-  }, []);
+
 
   return (
-      <Navbar className="h-16 w-full   ">
-        <div className=" w-full  place-items-center justify-end flex text-blue-gray-900">
-
+      <div className="px-5 py-3  shadow" >
+        <div className=" w-full gap-5  place-items-center justify-between flex text-blue-gray-900">
+ 
+<img src={Logo} className="w-28" />
+        <div className="flex flex-row gap-5">  
           <NavList />
 
-          <ProfileMenu />
+<ProfileMenu /></div>
         </div>
-
-      </Navbar>
+</div>
+   
   );
 }

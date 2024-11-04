@@ -1,14 +1,13 @@
 import { ComplexNavbar } from "../components/Navbar";
-import SidebarWithContentSeparator from "../components/Sidebar";
+import JeepLogs from "../components/JeepLogs";
 import pin  from "../assets/pin3.png"
 import Map, {Marker} from "react-map-gl";
 import 'mapbox-gl/dist/mapbox-gl.css';
 function Home() {
     return (
-      <>
-
-Home
-      </>
+      <div className="h-full pt-1 flex overflow-hidden">
+        <JeepLogs/>
+      </div>
     );
 }
 
