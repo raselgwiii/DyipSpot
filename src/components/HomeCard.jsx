@@ -58,7 +58,7 @@ import {
         <CardBody className="mb-6 p-0">
           <Typography>
             &quot;I found solution to all my design needs from Creative Tim. I use
-            them as a freelancer in my hobby projects for fun! And its really
+            them as a freelancer in my hobby projects for fun! And its reall
             affordable, very humble guys !!!&quot;
           </Typography>
         </CardBody>

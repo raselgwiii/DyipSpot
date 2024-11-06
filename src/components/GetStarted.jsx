@@ -14,8 +14,11 @@ function GetStarted() {
 
         try {
             const account = await signInWithPopup(auth, googleprovider)
+            console.log(account.user.providerData[0].uid)
 
-            console.log(account)
+
+
+            
             // cookies.set("authentication-token", account.user.refreshToken)
             // cookies.set("uid", account.user.uid)
             // localStorage.setItem("profilepicture", auth?.currentUser?.photoURL)
@@ -45,7 +48,7 @@ function GetStarted() {
                         See Passenger Counts, and Get Instant Vehicle Updates.
                     </p>
                     <button onClick={ContinueWithGoogle}
-                        className="px-10 mt-3 py-3  text-white bg-[#3083FF] shadow-md rounded-full PlusJakartaSans-Medium ">
+                        className="px-10 mt-3 py-3  text-white bg-[#3083FF] shadow-md rounded-full PlusJakartaSans-Medium  ">
 
                         Get Started
                     </button>
@@ -55,23 +58,22 @@ function GetStarted() {
             </div>
 
 
-            <div className=" w-full h-full   relative flex  flex-col ">
+            <div className=" w-full h-full grid    relative grid-row-2  flex-col ">
 
-                <div className="w-full  h-full relative ">
+                <div className="w-full   flex    h-full relative ">
 
-                    <img src={speedIcon} className="absolute object-cover bottom-10 right-10  w-[13rem]  " alt=""/>
-                    <img src={Arrivaltime} className="absolute  object-cover left-20 bottom-0   w-[13rem]  " alt=""/>
-                    <img src={Passengericon} className="absolute  object-cover left-[30%] w-[17rem] top-20     "
+                    <img src={speedIcon} className="absolute z-10 object-cover  top-10 right-10  w-[13rem]  " alt=""/>
+                    <img src={Arrivaltime} className="absolute  object-cover left-24 top-10   w-[13rem]  " alt=""/>
+                    <img src={Passengericon} className="absolute   object-cover left-[40%] w-[17rem] top-28     "
+                         alt=""/>
+
+                <img src={Jeep} className="absolute   object-cover bottom-0  h-[60%]  -right-[3rem]   "
                          alt=""/>
 
                 </div>
 
-                <div className="w-full  h-full">
-
-                    <img src={Jeep} className="absolute right-[-9rem] object-cover bottom-0   " alt=""/>
-
-                </div>
-            </div>
+              
+            </div> 
 
 
         </div>
