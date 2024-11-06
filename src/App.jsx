@@ -6,6 +6,7 @@ import _Layout from "./pages/_Layout.jsx";
 import Home from "./pages/Home.jsx";
 import Track from "./pages/Track.jsx";
 import Settings from "./pages/Settings.jsx";
+import Landing from "./pages/Landing.jsx";
 const router = createBrowserRouter([
     {
         path: '/',
@@ -30,11 +31,18 @@ const router = createBrowserRouter([
 function App() {
 
   const [count, setCount] = useState(0)
-
+const isLogin=false
   return (
     <>
+        {
 
-<RouterProvider router={router}/>
+
+
+
+            isLogin?<RouterProvider router={router}/>:<Landing/>
+        }
+
+
 
     </>
   )

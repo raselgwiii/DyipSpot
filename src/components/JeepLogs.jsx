@@ -23,34 +23,11 @@ import {
 } from "@heroicons/react/24/solid";
 import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
 import { TravelHistory } from "./HomeComponents/TravelHistory";
+import useScroll from "../CustomHooks/useScroll.jsx";
 
 export default function JeepLogs() {
-  const [open, setOpen] = React.useState(0);
-  const [isDragging, setIsDragging] = React.useState(false);
-  const [startX, setStartX] = React.useState(0);
-  const [scrollLeft, setScrollLeft] = React.useState(0);
+  const { isDragging, handleMouseDown, handleMouseUp, handleMouseMove } = useScroll();
 
-  const handleOpen = (value) => {
-    setOpen(open === value ? 0 : value);
-  };
-
-  const handleMouseDown = (e) => {
-    setIsDragging(true);
-    setStartX(e.pageX - e.currentTarget.offsetLeft);
-    setScrollLeft(e.currentTarget.scrollLeft);
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-  };
-
-  const handleMouseMove = (e) => {
-    if (!isDragging) return;
-    e.preventDefault();
-    const x = e.pageX - e.currentTarget.offsetLeft;
-    const walk = (x - startX) * 1.5; // Adjust scroll speed here
-    e.currentTarget.scrollLeft = scrollLeft - walk;
-  };
 
   return (
     <Card className="overflow-hidden rounded-none h-full gap-1 flex w-full max-w-[20rem] pl-4 shadow-xl shadow-blue-gray-900/5">

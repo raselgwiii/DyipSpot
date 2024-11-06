@@ -4,11 +4,10 @@ import SidebarWithContentSeparator from '../components/JeepLogs'
 function Landing() {
   return (
  <> 
-    {/* <GetStarted/> */}
+     <GetStarted/>
 
 
-{/* <SidebarWithContentSeparator/>
-  */}
+
  </>
   )
 }

@@ -1,6 +1,8 @@
 import React from 'react'
 import 'mapbox-gl/dist/mapbox-gl.css';
-export default function Map() {
+import Map from "react-map-gl";
+
+export default function RenderMap() {
   return (
  < >
  
