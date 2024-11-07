@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useContext} from "react";
 import Logo from '../assets/SpeedLoc (2).png'
 import {
   Navbar,
@@ -29,16 +29,36 @@ TruckIcon,
   Bars2Icon,
 } from "@heroicons/react/24/solid";
 import {Link} from "react-router-dom";
+import {signOut} from "firebase/auth";
+import {auth} from "../api/firebase-config.js";
+import {useCookies} from "react-cookie";
+import {CurrentUserContext} from "../ContextProvider/CurrentUser.jsx";
 
-// profile menu component
-const profileMenuItems = [
-  {
-    label: "Sign Out",
-    icon: PowerIcon,
-  },
-];
+
+
 
 function ProfileMenu() {
+
+
+  const {CurrentUser}=useContext(CurrentUserContext)
+
+  console.log(CurrentUser)
+  const Logout=async ()=>{
+    try {
+      await signOut(auth)
+      removeCookie('authentication-token')
+    }catch (e) {}
+  }
+  const profileMenuItems = [
+    {
+      label: "Sign Out",
+      icon: PowerIcon,
+      logout:Logout
+    },
+  ];
+
+  const [cookies, setCookie, removeCookie] = useCookies(['authentication-token']);
+
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const closeMenu = () => setIsMenuOpen(false);
@@ -56,7 +76,7 @@ function ProfileMenu() {
                 size="sm"
                 alt="tania andrew"
                 className="border border-gray-900 p-0.5"
-                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
+                src={CurrentUser?.photoURL}
             />
             <ChevronDownIcon
                 strokeWidth={2.5}
@@ -66,14 +86,14 @@ function ProfileMenu() {
             />
           </Button>
         </MenuHandler>
-        <MenuList className="p-1">
-          {profileMenuItems.map(({ label, icon }, key) => {
+        <MenuList className="p-1 place-items-center justify-center">
+          {profileMenuItems.map(({ label, icon, logout}, key) => {
             const isLastItem = key === profileMenuItems.length - 1;
             return (
                 <MenuItem
                     key={label}
-                    onClick={closeMenu}
-                    className={`flex items-center gap-0 rounded ${
+                    onClick={logout}
+                    className={`flex items-center gap-2 rounded ${
                         isLastItem
                             ? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
                             : ""
@@ -128,22 +148,24 @@ function NavList() {
 
       <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center">
         {navListItems.map(({ label, icon, route}, key) => (
+            <Link to={route}  key={label}>
+
             <Typography
-                key={label}
+
                 as="a"
                 href="#"
                 variant="small"
                 color="gray"
                 className="font-medium text-blue-gray-500"
             >
-           <Link to={route}>
 
              <MenuItem className="flex items-center gap-2 lg:rounded-full">
                {React.createElement(icon, { className: "h-[18px] w-[18px]" })}{" "}
                <span className="text-gray-900"> {label}</span>
              </MenuItem>
-           </Link>
+
             </Typography>
+          </Link>
         ))}
       </ul>
   );

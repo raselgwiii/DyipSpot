@@ -1,10 +1,7 @@
 import React from 'react'
 import SidebarWithContentSeparator from "../components/JeepLogs.jsx";
 import {ComplexNavbar} from "../components/Navbar.jsx";
-import Map, {Marker} from "react-map-gl";
-import pin from "../assets/pin3.png";
-import Track from "./Track.jsx";
-import Home from "./Home.jsx";
+
 import {Outlet} from "react-router-dom";
 
 function _Layout() {

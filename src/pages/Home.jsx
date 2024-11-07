@@ -1,7 +1,6 @@
 import { ComplexNavbar } from "../components/Navbar";
 import JeepLogs from "../components/JeepLogs";
-import pin  from "../assets/pin3.png"
-import Map, {Marker} from "react-map-gl";
+
 import 'mapbox-gl/dist/mapbox-gl.css';
 function Home() {
     return (
