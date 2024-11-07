@@ -8,6 +8,7 @@ import DownloadCard from "./DownloadCard.jsx";
 import {addDoc, collection,doc, setDoc} from "firebase/firestore";
 import {auth, googleprovider, facebookprovider,} from "../api/firebase-config"
 import {createUserWithEmailAndPassword, signInWithPopup, signOut} from "firebase/auth"
+import GetStartedButton from './GetStartedButton.jsx'
 function GetStarted() {
 
     const ContinueWithGoogle = async () => {
@@ -38,21 +39,19 @@ function GetStarted() {
     }
     return (
         <div className="w-full flex-row  overflow-hidden flex h-screen ">
-            <div className=" w-full flex   justify-end pb-12 flex-col h-full  ">
+            <div className=" w-full flex   justify-center pb-12 flex-col h-full  ">
                 <div className="pl-10 justify-start ">
 
 
-                    <h2 className="PlusJakartaSans-Bold text-[3.5rem] text-[rgb(60,60,60)]">Welcome to <span
+                    <h2 className="PlusJakartaSans-Bold text-[3.5rem] text-[rgb(60,60,60)] text-center">Welcome to <span
                         className="text-[#3083FF]">DyipSpot</span></h2>
-                    <p className="PlusJakartaSans-Medium text-[rgba(60,60,60,0.78)] "> Track Your Jeepneys in Real-Time,
+                    <p className="PlusJakartaSans-Medium text-[rgba(60,60,60,0.78)] text-sm text-center "> Track Your Jeepneys in Real-Time,
                         See Passenger Counts, and Get Instant Vehicle Updates.
                     </p>
-                    <button onClick={ContinueWithGoogle}
-                        className="px-10 mt-3 py-3  text-white bg-[#3083FF] shadow-md rounded-full PlusJakartaSans-Medium  ">
-
-                        Get Started
-                    </button>
+                  <div className="flex flex-row justify-center gap-3 place-items-center mt-3 h-auto ">    
+                    <GetStartedButton/>
                     <DownloadCard/>
+                  </div>
                 </div>
 
             </div>
