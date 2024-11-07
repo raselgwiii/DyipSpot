@@ -83,7 +83,7 @@ function GetStarted() {
                         See Passenger Counts, and Get Instant Vehicle Updates.
                     </p>
                     <div className="flex flex-row justify-center gap-3 place-items-center mt-3 h-auto ">
-                        <GetStartedButton/>
+                        <GetStartedButton ContinueWithGOOGLE={ContinueWithGoogle}/>
                         <DownloadCard/>
                     </div>
                 </div>
