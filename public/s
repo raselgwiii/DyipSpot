@@ -1,0 +1,105 @@
+import React, { useEffect, useRef } from 'react';
+import mapboxgl from 'mapbox-gl';
+import { Threebox } from 'threebox-plugin';
+
+import 'mapbox-gl/dist/mapbox-gl.css';
+import useFetchJeeps from "../CustomHooks/useFetchJeeps.js";
+import useFetchLocation from "../CustomHooks/useFetchLocation.js";
+
+const RenderMap = () => {
+    const mapContainerRef = useRef(null);
+    const mapRef = useRef(null);
+    const driverData = Array.from({ length: 5 }, (_, index) => ({
+        latitude: 16.93377886850046 + index * 0.01,   // Incremental latitude
+        longitude: 120.44695555349739 + index * 0.01,  // Incremental longitude
+        rotation: 90 + index * 15  // Incremental rotation
+    }));
+
+
+
+
+
+    const [LocationData] = useFetchLocation("drivers")
+
+
+
+    useEffect(() => {
+        mapboxgl.accessToken = 'pk.eyJ1IjoiamlvdmFuaTEyMyIsImEiOiJjbHl6bWE1Ymkxb2o5MmtzYngxaGJuMWljIn0.olBgfruAbty0QZdtvASqoQ';
+
+        mapRef.current = new mapboxgl.Map({
+            container: mapContainerRef.current,
+            style: 'mapbox://styles/mapbox/streets-v12',
+            center: [120.44695555349739,16.93377886850046],
+            zoom: 18.4,
+            pitch: 64.9,
+            bearing: 172.5,
+            antialias: true
+        });
+
+
+
+        return () => mapRef.current.remove();  // Clean up on unmount
+    }, []);
+    useEffect(()=>{
+
+        mapRef.current.on('style.load', async () => {
+            // Use Array.from() to simulate an array of mock driver data for testing
+
+            // Add custom 3D layer
+            mapRef.current.addLayer({
+                id: 'custom-threebox-model',
+                type: 'custom',
+                renderingMode: '3d',
+                onAdd: function () {
+                    // Initialize Threebox
+                    const tb = new Threebox(
+                        mapRef.current,
+                        mapRef.current.getCanvas().getContext('webgl'),
+                        { defaultLights: true }
+                    );
+
+                    // Iterate over each driver's data and load a model for each
+                    LocationData?.forEach((driver, index) => {
+                        const rotation = driver?.heading
+
+                        console.log(rotation)
+                        const scale = 1.2;
+                        const options = {
+                            obj: '/scene.gltf',  // The path to your 3D model
+                            type: 'gltf',
+                            scale: { x: scale, y: scale, z: 1.2 },  // Adjust scale as needed
+                            units: 'meters',
+                            rotation: { x: 90, y: 0, z: 0 }  // Adjust rotation as needed
+                        };
+
+                        // Load the 3D model
+                        tb.loadObj(options, (model) => {
+                            // Set the model's position based on driver's mock data
+                            model.setCoords([driver?.longitude, driver?.latitude]);
+
+                            // Set the model's rotation (use any custom rotation from the mock data)
+                            model.setRotation({ x: 0, y: 0, z:  driver?.heading });
+
+                            // Add the model to the map
+                            tb.add(model);
+                        });
+                    });
+
+                    // Store the Threebox instance for later use (e.g., update)
+                    window.tb = tb;
+                },
+
+                // Continuously update the models (if needed)
+                render: function () {
+                    if (window.tb) {
+                        window.tb.update();
+                    }
+                }
+            });
+        });
+    },[])
+
+    return <div ref={mapContainerRef} style={{ height: '100vh', width: '100%' }} />;
+};
+
+export default RenderMap;
