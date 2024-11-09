@@ -73,7 +73,7 @@ function GetStarted() {
     }
     return (
         <div className="w-full flex-row  overflow-hidden flex h-screen ">
-            <div className=" w-full flex   justify-center pb-12 flex-col h-full  ">
+            <div className=" w-full flex justify-center pb-12 flex-col h-full sh">
                 <div className="pl-10 justify-start ">
 
 

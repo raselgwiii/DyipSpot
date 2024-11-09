@@ -10,13 +10,10 @@ function _Layout() {
         
         <div className="w-full flex flex-col  ">
 
-          <div className="   flex flex-col h-full  w-full">
+          <div className="   flex flex-col h-full  w-full ">
             <ComplexNavbar/>
 
                    <Outlet/>
-
-         
-
 
           </div>
 

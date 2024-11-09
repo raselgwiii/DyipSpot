@@ -39,10 +39,9 @@ function App() {
 
 
 
-            cookies["authentication-token"]?<RouterProvider router={router}/>:<Landing/>
+<RouterProvider router={router}/>
+
         }
-
-
 
     </CurrentUserProvider>
   )
