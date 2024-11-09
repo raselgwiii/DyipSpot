@@ -25,7 +25,7 @@ import {
    
   export default function NotAvailableCard() {
     return (
-      <Card shadow={false} className="w-full max-w-[26rem] mb-5 bg-gray-300">
+      <Card shadow={false} className="w-96 max-w-[26rem] mb-5 bg-gray-200">
         <CardHeader
           color="transparent"
           floated={false}
