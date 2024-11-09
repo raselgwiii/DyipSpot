@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function GetStartedButton({ContinueWithGOOGLE}) {
     return (
-        <div
-            className=" max-w-sm  bg-gradient-to-tb  from-blue-900 to-gray-800 flex flex-col rounded-2xl ">
+        <div onClick={ContinueWithGOOGLE}
+                    className=" max-w-sm  bg-gradient-to-tb  from-blue-900 to-gray-800 flex flex-col rounded-2xl ">
 
             <div className="flex gap-2.5 ">
                 <a href="#" style={{
@@ -15,7 +15,7 @@ export default function GetStartedButton({ContinueWithGOOGLE}) {
   </span>
                     <div className=" ml-2 flex flex-col">
 
-                        <button onClick={ContinueWithGOOGLE} className="text-white PlusJakartaSans-Bold leading-4"> Get Started</button>
+                        <button className="text-white PlusJakartaSans-Bold leading-4"> Get Started</button>
                     </div>
                 </a>
 
