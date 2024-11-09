@@ -8,11 +8,8 @@ import useFetchLocation from "../CustomHooks/useFetchLocation.js"; // Ensure pat
 export default function RenderMap() {
     const mapRef = useRef(null);
     const [mapLoaded, setMapLoaded] = useState(false);
-
     const [userLocationData] = useFetchLocation("users");
     const [driverLocationData] = useFetchLocation("drivers");
-
-    // Data for passengers and drivers
     const PassengerLocationMarker = {
         type: 'FeatureCollection',
         features: userLocationData?.map(user => ({
@@ -29,6 +26,7 @@ export default function RenderMap() {
             },
         })),
     };
+
 
     const DriverLocationMarker = {
         type: 'FeatureCollection',
@@ -48,7 +46,6 @@ export default function RenderMap() {
         })),
     };
 
-    // Function to load images (used in onLoad and styleimagemissing)
     const loadImage = (mapInstance, imagePath, imageId) => {
         mapInstance.loadImage(imagePath, (error, image) => {
             if (error) {
@@ -61,7 +58,6 @@ export default function RenderMap() {
         });
     };
 
-    // Callback to handle map load event
     const handleMapLoad = () => {
         setMapLoaded(true);
         const mapInstance = mapRef.current.getMap();
@@ -98,7 +94,7 @@ export default function RenderMap() {
                 });
             }
         }
-    }, [mapLoaded]); // Ensure images are added after map load
+    }, [mapLoaded]); 
 
     return (
         <Map
@@ -112,25 +108,33 @@ export default function RenderMap() {
                 pitch: 50,
             }}
             mapStyle="mapbox://styles/mapbox/standard"
-            onLoad={handleMapLoad} // Use the onLoad prop to set mapLoaded state
+            onLoad={handleMapLoad}
         >
             {mapLoaded && (
                 <>
-                    {/* Passenger Location Marker Source and Layers */}
+
                     <Source
                         id="passenger-locations"
                         type="geojson"
                         data={PassengerLocationMarker}
                         cluster={true}
-                        clusterMaxZoom={14}
-                        clusterRadius={50}
+                        clusterMaxZoom={20}
+                        clusterRadius={40}
                     >
                         <Layer
                             id="passenger-clusters"
                             type="circle"
                             filter={['has', 'point_count']}
+                            layout={{
+
+                            }
+                            }
                             paint={{
-                                'circle-color': '#51bbd6',
+                                "circle-stroke-color": 'rgba(48,131,255,0.38)',
+                                "circle-stroke-width":5,
+                                    "text-color":"pink",
+                                'circle-color': '#3083FF',
+
                                 'circle-radius': [
                                     'step',
                                     ['get', 'point_count'],
@@ -146,9 +150,19 @@ export default function RenderMap() {
                             id="passenger-cluster-count"
                             type="symbol"
                             filter={['has', 'point_count']}
+                            paint={{
+                        "text-color":"#fff",
+
+
+                        }
+                            }
                             layout={{
                                 'text-field': '{point_count_abbreviated}',
                                 'text-size': 12,
+"text-allow-overlap" :true,
+
+
+
                             }}
                         />
                         <Layer
@@ -157,13 +171,13 @@ export default function RenderMap() {
                             filter={['!', ['has', 'point_count']]}
                             layout={{
                                 "icon-allow-overlap": true,
-                                'icon-image': 'passenger-pin', // Use the custom pin image for passengers
+                                'icon-image': 'passenger-pin',
                                 'icon-size': 0.5,
                             }}
                         />
                     </Source>
 
-                    {/* Driver Location Marker Source and Layers */}
+
                     <Source
                         id="driver-locations"
                         type="geojson"
@@ -177,7 +191,11 @@ export default function RenderMap() {
                             type="circle"
                             filter={['has', 'point_count']}
                             paint={{
-                                'circle-color': '#f28cb1',
+                                "circle-stroke-color": 'rgba(131,169,255,0.64)',
+                                "circle-stroke-width":5,
+                                "text-color":"pink",
+
+                                'circle-color': '#a4c3ff',
                                 'circle-radius': [
                                     'step',
                                     ['get', 'point_count'],
@@ -193,6 +211,11 @@ export default function RenderMap() {
                             id="driver-cluster-count"
                             type="symbol"
                             filter={['has', 'point_count']}
+                            paint={{
+                                "text-color":"#fff",
+
+
+                            }}
                             layout={{
                                 'text-field': '{point_count_abbreviated}',
                                 'text-size': 12,
@@ -204,7 +227,7 @@ export default function RenderMap() {
                             filter={['!', ['has', 'point_count']]}
                             layout={{
                                 "icon-allow-overlap": true,
-                                'icon-image': 'driver-pin', // Use the custom jeep pin for drivers
+                                'icon-image': 'driver-pin',
                                 'icon-size': 0.3,
                             }}
                         />
