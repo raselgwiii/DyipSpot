@@ -6,6 +6,7 @@ import {
     Typography,
     Button,
   } from "@material-tailwind/react";
+  import ApplyModal from "./ApplyModal";
    
   export default function ApplyCard() {
     return (
@@ -20,15 +21,7 @@ import {
           </Typography>
         </CardBody>
         <CardFooter variant="large" className="pt-0">
-        <Button
-        ripple={false}
-        fullWidth={true}
-        className="PlusJakartaSans-Bold bg-white text-blue-500 shadow-md hover:scale-105 hover:shadow-md focus:scale-50 focus:shadow-none active:scale-50 flex items-center justify-center"
-        >
-        <span className="text-center">Apply Now!</span>
-        <img src="/src/assets/jeep.png" alt="Jeep icon"  className="w-8 h-50 mr-2"/>
-        </Button>
-
+        <span className="text-center" ><ApplyModal/></span>
         </CardFooter>
       </Card>
     );
