@@ -4,7 +4,8 @@ import Map, { Source, Layer } from 'react-map-gl';
 import pin from "../assets/passengericon.png"; // Ensure path is correct
 import jeepPin from "../assets/jeepLogoPin.png";
 import useFetchLocation from "../CustomHooks/useFetchLocation.js"; // Ensure path is correct
-
+import { Threebox } from 'threebox-plugin';
+import mapboxgl from 'mapbox-gl';
 export default function RenderMap() {
     const mapRef = useRef(null);
     const [mapLoaded, setMapLoaded] = useState(false);
@@ -60,9 +61,8 @@ export default function RenderMap() {
 
     const handleMapLoad = () => {
         setMapLoaded(true);
-        const mapInstance = mapRef.current.getMap();
+        const mapInstance = mapRef.current;
 
-        // Load and add custom images when map is loaded
         if (mapInstance) {
             mapInstance.on('load', () => {
                 loadImage(mapInstance, pin, 'passenger-pin');
@@ -91,14 +91,24 @@ export default function RenderMap() {
                 mapInstance.on('load', () => {
                     loadImage(mapInstance, pin, 'passenger-pin');
                     loadImage(mapInstance, jeepPin, 'driver-pin');
+
                 });
+
             }
+
+
+
+
+
         }
     }, [mapLoaded]); 
 
+
+
+ 
     return (
         <Map
-            ref={mapRef}
+       ref={mapRef}
             mapboxAccessToken="pk.eyJ1IjoiamlvdmFuaTEyMyIsImEiOiJjbHl5ZDZhbzcxY2s3Mm5zbG1taWZ1MDBjIn0.1nOWIuN47R6lsU1QXp40KQ"
             initialViewState={{
                 longitude: 120.44945048835295,
