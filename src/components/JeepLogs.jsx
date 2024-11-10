@@ -25,12 +25,12 @@ import { ChevronRightIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
 import { TravelHistory } from "./HomeComponents/TravelHistory";
 import useScroll from "../CustomHooks/useScroll.jsx";
 
-export default function JeepLogs() {
+export default function JeepLogs({isActive}) {
   const { isDragging, handleMouseDown, handleMouseUp, handleMouseMove } = useScroll();
 
 
   return (
-    <Card className="overflow-hidden rounded-none h-full gap-1 flex w-full max-w-[20rem] pl-4 shadow-xl shadow-blue-gray-900/5">
+    <Card className={`overflow-hidden shadow-none  select-none rounded-none h-full gap-1 flex w-full  pl-4  ${isActive ? "opacity-100" : " opacity-70"}`}>
       <div
         className="p-3 flex w-full gap-2 h-auto overflow-x-hidden no-scrollbar"
         style={{ cursor: isDragging ? 'grabbing' : 'grab' }}

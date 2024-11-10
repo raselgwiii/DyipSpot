@@ -5,7 +5,7 @@ import {
     Typography,
     Avatar,
   } from "@material-tailwind/react";
-  import Switch from '../components/Switch';
+
    
   function StarIcon() {
     return (
@@ -26,21 +26,23 @@ import {
    
   export default function SettingsCard() {
     return (
-      <Card color="transparent" shadow={false} className="w-full max-w-[26rem]">
-        <CardHeader
+      <div   className=" flex ">
+        <div
           color="transparent"
-          floated={false}
-          shadow={false}
-          className="mx-0 flex items-center gap-4 pt-0 pb-8 "
+          className="flex flex-row items-center gap-8"
         >
-          <Avatar
-            size="lg"
-            variant="circular"
-            src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
-            alt="tania andrew"
-          />
-          <div className="flex w-full flex-col gap-0.5">
-            <div className="flex items-center justify-between">
+        <div    >
+
+            <img
+
+                className={"w-[24rem] rounded-full"}
+                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
+                alt="tania andrew"
+            />
+        </div>
+
+          <div className="flex w-full flex-col ">
+            <div className="flex w-full">
               <Typography variant="h5" color="black" className="PlusJakartaSans-Bold">
                 Russel Gue Caponga
               </Typography>
@@ -49,16 +51,7 @@ import {
             
             <Typography variant="large" color="blue-gray" className="PlusJakartaSans-Medium">Passenger</Typography>
           </div>
-        </CardHeader>
-            <CardBody className="mb-6 p-0 ">
-            <Typography variant="h5" color="blue-gray" className="PlusJakartaSans-Bold"> Personalization </Typography>
-                <div className="flex flex-row">
-                    <Typography className="ml-5 text-balance PlusJakartaSans-Medium">
-                    Enable background location tracking for real-time updates, even when the app is closed.For drivers,this is required to ensure accurate tracking at all times.
-                    </Typography>
-                    <Switch/>
-                </div>
-            </CardBody>
-      </Card>
+        </div>
+      </div>
     );
   }

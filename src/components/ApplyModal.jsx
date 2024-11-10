@@ -20,11 +20,13 @@ export default function ApplyModal() {
     <>
       <Button onClick={handleOpen}
         ripple={false}
-        fullWidth={true}
-        className="PlusJakartaSans-Bold bg-white text-blue-500 shadow-md hover:scale-105 hover:shadow-md focus:scale-50 focus:shadow-none active:scale-50 flex items-center justify-center"
+
+        className="PlusJakartaSans-Bold whitespace-nowrap px-20 overflow-hidden rounded-full relative shadow-2xl  bg-white text-blue-500 shadow-md hover:scale-105 hover:shadow-md focus:scale-50 focus:shadow-none active:scale-50 flex items-center justify-center"
         >Apply Now!
-        <img src="/src/assets/jeep.png" alt="Jeep icon"  className="w-8 h-50 mr-2"/>
+        <img src="/src/assets/dyipcropted.png" alt="Jeep icon"  className="h-full -right-3 mr-2 absolute"/>
         </Button>
+
+
       <Dialog
         size="xs"
         open={open}

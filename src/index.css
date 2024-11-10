@@ -40,9 +40,28 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'PlusJakartaSans-Regular';
+  src: url('./assets/fonts/PlusJakartaSans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .PlusJakartaSans-Bold {
   font-family: 'PlusJakartaSans-Bold', sans-serif; /* Fallback to sans-serif */
 }
 .PlusJakartaSans-Medium {
   font-family: 'PlusJakartaSans-Medium', sans-serif; /* Fallback to sans-serif */
+}
+.PlusJakartaSans-Regular {
+  font-family: 'PlusJakartaSans-Regular', sans-serif; /* Fallback to sans-serif */
+}
+
+
+
+
+.swiper-slide {
+  width: auto;
+  height: unset;
+  position: relative;
 }
