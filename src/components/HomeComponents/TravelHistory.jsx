@@ -15,7 +15,7 @@ import {
      
      <div className="w-full flex h-full   ">
         
-        <Timeline className="">
+        <Timeline className="shadow-none">
         {Array.from({ length: 4 }).map((_, index) => (
   <TimelineItem key={index} className="gap-0">
     {index < 3 && <TimelineConnector/>}
@@ -27,7 +27,7 @@ import {
         9:00 pm
       </Typography> 
     </TimelineHeader>
-    <TimelineBody>
+    <TimelineBody className={"shadow-none"}>
       <Typography color="gray" className="font-normal text-gray-600">
         Cabulanglangan, Tagudin, Ilocos Sur
       </Typography>
