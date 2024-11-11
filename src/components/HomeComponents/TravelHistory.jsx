@@ -21,7 +21,7 @@ import {
     {index < 3 && <TimelineConnector/>}
     <TimelineHeader>
       <TimelineIcon className="p-2 bg-[#3083FF]">
-        <MapPinIcon className="h-4 w-4" />
+        <MapPinIcon className="h-4 w-4" /> 
       </TimelineIcon>
       <Typography color="gray" className="font-normal text-gray-600">
         9:00 pm

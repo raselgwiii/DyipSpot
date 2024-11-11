@@ -24,6 +24,7 @@ import {
 import {ChevronRightIcon, ChevronDownIcon} from "@heroicons/react/24/outline";
 import {TravelHistory} from "./HomeComponents/TravelHistory";
 import useScroll from "../CustomHooks/useScroll.jsx";
+import DailyPassenger from "../components/HomeComponents/DailyPassenger.jsx"
 
 export default function JeepLogs({isActive}) {
     const {isDragging, handleMouseDown, handleMouseUp, handleMouseMove} = useScroll();
@@ -36,7 +37,7 @@ export default function JeepLogs({isActive}) {
     function RenderLogs() {
         switch (activeLogsIndex) {
             case  0:
-                return <div>Passengers</div>
+                return <div><DailyPassenger/></div>
             case  1:
                 return <TravelHistory/>
             case  2:
@@ -69,7 +70,7 @@ export default function JeepLogs({isActive}) {
 
     return (
         <Card
-            className={`overflow-hidden shadow-none  select-none rounded-none h-full gap-1 flex w-full  pl-4  ${isActive ? "opacity-100" : " opacity-70"}`}>
+            className={`overflow-scroll  shadow-none  select-none rounded-none h-full gap-1 flex w-full  pl-4  ${isActive ? "opacity-100" : " opacity-70"}`}>
             <div
                 className="p-3 flex w-full gap-2 h-auto overflow-x-hidden no-scrollbar "
                 style={{cursor: isDragging ? 'grabbing' : 'grab'}}
