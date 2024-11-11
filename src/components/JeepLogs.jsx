@@ -70,7 +70,7 @@ export default function JeepLogs({isActive}) {
 
     return (
         <Card
-            className={`overflow-scroll  shadow-none  select-none rounded-none h-full gap-1 flex w-full  pl-4  ${isActive ? "opacity-100" : " opacity-70"}`}>
+            className={`  shadow-none  select-none rounded-none  gap-1 flex w-full  pl-4  ${isActive ? "opacity-100" : " opacity-70"}`}>
             <div
                 className="p-3 flex w-full gap-2 h-auto overflow-x-hidden no-scrollbar "
                 style={{cursor: isDragging ? 'grabbing' : 'grab'}}
@@ -96,7 +96,7 @@ export default function JeepLogs({isActive}) {
             </div>
 
 
-            <div className="h-full flex">
+            <div className="h-full w-full  flex-1 flex">
 
                 {RenderLogs()}
 
