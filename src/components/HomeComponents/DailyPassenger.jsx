@@ -9,7 +9,7 @@ import {
    
   const chartConfig = {
     type: "line",
-    height: 240,
+
     series: [
       {
         name: "Sales",
@@ -98,23 +98,11 @@ import {
    
   export default function DailyPassenger() {
     return (
-      <Card>
-        <CardHeader
-          floated={false}
-          shadow={false}
-          color="transparent"
-          className="flex flex-col gap-4 rounded-none md:flex-row md:items-center"
-        >
-          <div>
-            <Typography variant="h6" color="blue-gray">
-              Line Chart
-            </Typography>
-           
-          </div>
-        </CardHeader>
-        <CardBody className="px-2 pb-0">
-          <Chart {...chartConfig} />
-        </CardBody>
-      </Card>
+      <div className="w-full flex   flex-1 justify-center place-items-center ">
+
+
+          <Chart className={"flex-1 w-full flex bg-green"} width={400}   {...chartConfig} />
+
+      </div>
     );
   }
