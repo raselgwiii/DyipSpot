@@ -1,110 +1,102 @@
-import {
-    Card,
-    CardBody,
-    CardHeader,
-    Typography,
-  } from "@material-tailwind/react";
-  import Chart from "react-apexcharts";
-   
-   
-  const chartConfig = {
-    type: "line",
+  import React, { useContext } from "react";
 
-    series: [
-      {
-        name: "Sales",
-        data: [50, 40, 300, 320, 500, 350, 200, 230, 500],
-      },
-    ],
-    options: {
-      chart: {
-        toolbar: {
-          show: false,
-        },
-      },
-      title: {
-        show: "",
-      },
-      dataLabels: {
-        enabled: false,
-      },
-      colors: ["#020617"],
-      stroke: {
-        lineCap: "round",
-        curve: "smooth",
-      },
-      markers: {
-        size: 0,
-      },
-      xaxis: {
-        axisTicks: {
-          show: false,
-        },
-        axisBorder: {
-          show: false,
-        },
-        labels: {
-          style: {
-            colors: "#616161",
-            fontSize: "12px",
-            fontFamily: "inherit",
-            fontWeight: 400,
-          },
-        },
-        categories: [
-          "Apr",
-          "May",
-          "Jun",
-          "Jul",
-          "Aug",
-          "Sep",
-          "Oct",
-          "Nov",
-          "Dec",
-        ],
-      },
-      yaxis: {
-        labels: {
-          style: {
-            colors: "#616161",
-            fontSize: "12px",
-            fontFamily: "inherit",
-            fontWeight: 400,
-          },
-        },
-      },
-      grid: {
-        show: true,
-        borderColor: "#dddddd",
-        strokeDashArray: 5,
-        xaxis: {
-          lines: {
-            show: true,
-          },
-        },
-        padding: {
-          top: 5,
-          right: 20,
-        },
-      },
-      fill: {
-        opacity: 0.8,
-      },
+  import { Chart } from "react-chartjs-2";
+  import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend,
+    Filler,
+  } from "chart.js";
+  ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend,
+    Filler
+  );
+
+  const createOptions = (uiCtx) => ({
+    maintainAspectRatio: false,
+    interaction: {
+      mode: "index",
+      intersect: false,
+      axis: "x",
+    },
+    plugins: {
       tooltip: {
-        theme: "blue",
+        enabled: true,
+      },
+      legend: false,
+    },
+    scales: {
+      y: {
+        grid: {
+          drawOnChartArea: false,
+          drawBorder: false,
+        },
+        ticks: {
+          color: uiCtx.theme === "light" ? "#929292" : "#fff",
+        },
+      },
+      x: {
+        grid: {
+          color: uiCtx.theme === "light" ? "#dddfe5" : "#26323f",
+          drawBorder: false,
+          borderDash: [6],
+          border: false,
+        },
+        ticks: {
+          font: {
+            family: "'Mulish', sans-serif",
+            size: "16px",
+          },
+          color: uiCtx.theme === "light" ? "#929292" : "#fff",
+        },
       },
     },
-  };
-   
-  export default function DailyPassenger() {
-    return (
-      <div className=" flex w-full h-full     flex-1 justify-center place-items-center ">
+  });
 
+const hardcodedData = [
+  { month: "Jan", passengers: 10 },
+  { month: "Feb", passengers: 20 },
+  { month: "Mar", passengers: 30 },
+  { month: "Apr", passengers: 30 },
+  { month: "May", passengers: 0 },
+  { month: "Jun", passengers: 40 },
+  { month: "Jul", passengers: 50 },
+  { month: "Aug", passengers: 75 },
+  { month: "Sep", passengers: 50 },
+  { month: "Oct", passengers: 60 },
+  { month: "Nov", passengers: 80 },
+  { month: "Dec", passengers: 90 },
+];
 
-     <div className="w-full   h-full flex-1">
+  const DailyPassenger = () => {
   
-  <Chart {...chartConfig}  />
-      </div>
-      </div>
-    );
-  }
+    const chartData = {
+      labels: hardcodedData.map(({ month }) => month),
+      datasets: [
+        {
+          label: "Sales",
+          backgroundColor: "rgba(48,131,255,0.4)",
+          borderColor: "rgb(48,131,255)",
+          fill: true,
+          data: hardcodedData.map(({ passengers }) => passengers),
+          lineTension: 0.4,
+        },
+
+      ],
+    };
+
+    return <Chart type="line" data={chartData} options={chartData} />;
+  };
+
+  export default DailyPassenger;
