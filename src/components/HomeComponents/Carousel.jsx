@@ -29,9 +29,9 @@ centeredSlides={true}
             {LocationData.map((DriverInformation, index) => {
                 return (
 
-                    <SwiperSlide   key={DriverInformation.id} className="h-full pt-5">
+                    <SwiperSlide   key={DriverInformation.id} className="h-full w-full pt-5">
                         {({ isActive }) => (
-                         <div>
+                         <div className='w-full h-full'>
                              <CarouselCard  isActive={isActive} DriverInformation={DriverInformation}/>
                            <JeepLogs isActive={isActive}/>
                          </div>

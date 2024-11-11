@@ -98,11 +98,13 @@ import {
    
   export default function DailyPassenger() {
     return (
-      <div className="w-full flex   flex-1 justify-center place-items-center ">
+      <div className=" flex w-full h-full     flex-1 justify-center place-items-center ">
 
 
-          <Chart className={"flex-1 w-full flex bg-green"} width={400}   {...chartConfig} />
-
+     <div className="w-full   h-full flex-1">
+  
+  <Chart {...chartConfig}  />
+      </div>
       </div>
     );
   }

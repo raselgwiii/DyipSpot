@@ -16,7 +16,7 @@ function Home() {
                </Typography>
            </div>
 
-            <div className="h-full ">
+            <div className="h-full w-full">
 
                 <Carousel/>
             </div>
