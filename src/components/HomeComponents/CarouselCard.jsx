@@ -13,7 +13,7 @@ export default function CarouselCard({ DriverInformation, isActive }) {
         <Card
             color="transparent"
             shadow={false}
-            className={`w-full min-w-[28rem] ${isActive ? "opacity-100 z-[111] -translate-y-6 " : "opacity-75"} overflow-visible px-10 rounded-2xl bg-gradient-to-t from-blue-800 to-blue-500 select-none`}
+            className={`w-full min-w-[28rem] ${isActive ? "opacity-100 z-[111] -translate-y-6 " : "opacity-75"} overflow-visible z-50  px-10 rounded-2xl bg-gradient-to-t from-blue-800 to-blue-500 select-none`}
         >
             <CardHeader
                 color="transparent"

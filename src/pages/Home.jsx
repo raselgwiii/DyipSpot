@@ -6,7 +6,7 @@ import {Typography} from "@material-tailwind/react";
 
 function Home() {
     return (
-        <div className=" w-full h-full pt-4  flex-col flex ">
+        <div className=" w-full h-full   pt-4  flex-col flex  flex-1 ">
            <div>
                <Typography className="px-10 PlusJakartaSans-Bold text-3xl" color="blue-gray" >
                    Hi Russel Gue Caponga
@@ -16,14 +16,10 @@ function Home() {
                </Typography>
            </div>
 
-            <div className="h-full w-full">
 
                 <Carousel/>
-            </div>
-            {/*<div className="px-10 h-full">*/}
-
-            {/*    <JeepLogs/>*/}
-            {/*</div>*/}
+        
+          
 
         </div>
     );
