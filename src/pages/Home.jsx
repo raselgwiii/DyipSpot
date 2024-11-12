@@ -6,7 +6,7 @@ import {Typography} from "@material-tailwind/react";
 
 function Home() {
     return (
-        <div className=" w-full h-full pt-10  flex-col flex ">
+        <div className=" w-full h-full pt-4  flex-col flex ">
            <div>
                <Typography className="px-10 PlusJakartaSans-Bold text-3xl" color="blue-gray" >
                    Hi Russel Gue Caponga

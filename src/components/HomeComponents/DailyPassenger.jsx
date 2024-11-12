@@ -55,7 +55,7 @@
         },
         ticks: {
           font: {
-            family: "'Mulish', sans-serif",
+            family: "PlusJakartaSans-Medium",
             size: "16px",
           },
           color: uiCtx.theme === "light" ? "#929292" : "#fff",
@@ -85,7 +85,7 @@ const hardcodedData = [
       labels: hardcodedData.map(({ month }) => month),
       datasets: [
         {
-          label: "Sales",
+          label: "Passengers",
           backgroundColor: "rgba(48,131,255,0.4)",
           borderColor: "rgb(48,131,255)",
           fill: true,
