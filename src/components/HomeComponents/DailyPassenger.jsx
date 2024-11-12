@@ -28,7 +28,7 @@ import {
       dataLabels: {
         enabled: false,
       },
-      colors: ["#020617"],
+      colors: ["#3083FF"],
       stroke: {
         lineCap: "round",
         curve: "smooth",
@@ -45,7 +45,7 @@ import {
         },
         labels: {
           style: {
-            colors: "#616161",
+            colors: "#3083FF",
             fontSize: "12px",
             fontFamily: "inherit",
             fontWeight: 400,

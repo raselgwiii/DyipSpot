@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import Logo from '../assets/SpeedLoc (2).png';
 import {
     Card,
     Typography,
@@ -21,13 +20,8 @@ import {
     InboxIcon,
     PowerIcon,
 } from "@heroicons/react/24/solid";
-import {ChevronRightIcon, ChevronDownIcon} from "@heroicons/react/24/outline";
-import {TravelHistory} from "./HomeComponents/TravelHistory";
-import useScroll from "../CustomHooks/useScroll.jsx";
-import DailyPassenger from "../components/HomeComponents/DailyPassenger.jsx"
-import RecentTrips from "./HomeComponents/RecentTrips.jsx";
 
-export default function JeepLogs({isActive}) {
+export default function Dates({isActive}) {
     const {isDragging, handleMouseDown, handleMouseUp, handleMouseMove} = useScroll();
 
 
@@ -38,11 +32,11 @@ export default function JeepLogs({isActive}) {
     function RenderLogs() {
         switch (activeLogsIndex) {
             case  0:
-                return <div><DailyPassenger/></div>
+                return <div>All</div>
             case  1:
-                return <TravelHistory/>
+                return <div>Today</div>
             case  2:
-                return <div><RecentTrips/></div>
+                return <div>Set Date</div>
         }
     }
 
