@@ -24,16 +24,18 @@ centeredSlides={true}
             }}
             onSlideChange={(swiper) => console.log(swiper)}
             onSwiper={(swiper) => console.log(swiper)}
-            className='py-5 px-10 w-full h-full'
+            className='py-5 px-10 w-full h-full '
         >
             {LocationData.map((DriverInformation, index) => {
                 return (
 
-                    <SwiperSlide   key={DriverInformation.id} className="h-full w-full pt-5">
+                    <SwiperSlide   key={DriverInformation.id} className="h-full w-full -z-50 pt-5 ">
                         {({ isActive }) => (
-                         <div className='w-full h-full'>
+                         <div className='h-full flex flex-col w-full  '>
                              <CarouselCard  isActive={isActive} DriverInformation={DriverInformation}/>
-                           <JeepLogs isActive={isActive}/>
+                                <div className=' relative  h-full'>
+                                    <JeepLogs isActive={isActive} />
+                          </div>
                          </div>
                         )}
 

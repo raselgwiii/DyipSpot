@@ -12,8 +12,8 @@ import {
   export function TravelHistory() {
     return (
 
-     <div className="h-full overflow-auto pr-2 ">
-     <Dates/>
+      <div className="h-full w-full   pr-2 ">
+
      <div className="w-full flex h-full   ">
         
         <Timeline className="shadow-none">
@@ -25,22 +25,18 @@ import {
       <TimelineIcon className="p-2 bg-[#3083FF]">
         <MapPinIcon className="h-4 w-4" /> 
       </TimelineIcon>
-      
+              <Typography color="gray" className="font-normal PlusJakartaSans-Bold text-gray-600">
+                9:00 pm
+              </Typography> 
     </TimelineHeader>
-    <TimelineBody className={"shadow-none"}>
-    <Typography color="gray" className="font-normal text-gray-600">
-        9:00 pm
-      </Typography> 
-      <Typography color="gray" className="font-normal text-gray-600">
+    <TimelineBody className={"shadow-none pb-5"}>
+ 
+              <Typography color="gray" className="font-normal PlusJakartaSans-Medium text-gray-600">
         Cabulanglangan, Tagudin, Ilocos Sur
       </Typography>
     </TimelineBody>
   </TimelineItem>
-))}
-
-
-
-          
+))}          
         </Timeline>
       </div>
      </div>

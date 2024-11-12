@@ -42,7 +42,7 @@ export default function JeepLogs({isActive}) {
             case  1:
                 return <TravelHistory/>
             case  2:
-                return <div><RecentTrips/></div>
+                return <RecentTrips/>
         }
     }
 
@@ -70,8 +70,8 @@ export default function JeepLogs({isActive}) {
     }
 
     return (
-        <Card
-            className={`  shadow-none   select-none rounded-none  gap-1 flex  flex-1 w-full  pl-4  ${isActive ? "opacity-100" : " opacity-70"}`}>
+        <div
+            className={` flex-col flex h-full  flex-1 absolute overflow-hidden  shadow-none    select-none rounded-none  gap-1  w-full  pl-4  ${isActive ? "opacity-100" : " opacity-70"}`}>
             <div
                 className="p-3 flex w-full gap-2 h-auto overflow-x-hidden no-scrollbar "
                 style={{cursor: isDragging ? 'grabbing' : 'grab'}}
@@ -97,11 +97,11 @@ export default function JeepLogs({isActive}) {
             </div>
 
 
-            <div className="h-full   w-full   flex-1 flex">
+            <div className="h-full  overflow-y-auto   w-full    flex">
 
                 {RenderLogs()}
 
             </div>
-        </Card>
+        </div>
     );
 }
