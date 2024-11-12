@@ -96,7 +96,7 @@ export default function JeepLogs({isActive}) {
             </div>
 
 
-            <div className="h-full    w-full   flex-1 flex">
+            <div className="h-full   w-full   flex-1 flex">
 
                 {RenderLogs()}
 
