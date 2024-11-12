@@ -1,5 +1,4 @@
 import React, {useState} from "react";
-import Logo from '../assets/SpeedLoc (2).png';
 import {
     Card,
     Typography,
@@ -21,13 +20,8 @@ import {
     InboxIcon,
     PowerIcon,
 } from "@heroicons/react/24/solid";
-import {ChevronRightIcon, ChevronDownIcon} from "@heroicons/react/24/outline";
-import {TravelHistory} from "./HomeComponents/TravelHistory";
-import useScroll from "../CustomHooks/useScroll.jsx";
-import DailyPassenger from "../components/HomeComponents/DailyPassenger.jsx"
-import RecentTrips from "./HomeComponents/RecentTrips.jsx";
 
-export default function JeepLogs({isActive}) {
+export default function Dates({isActive}) {
     const {isDragging, handleMouseDown, handleMouseUp, handleMouseMove} = useScroll();
 
 
@@ -38,11 +32,11 @@ export default function JeepLogs({isActive}) {
     function RenderLogs() {
         switch (activeLogsIndex) {
             case  0:
-                return <DailyPassenger/>
+                return <div>All</div>
             case  1:
-                return <TravelHistory/>
+                return <div>Today</div>
             case  2:
-                return <div><RecentTrips/></div>
+                return <div>Set Date</div>
         }
     }
 
@@ -71,7 +65,7 @@ export default function JeepLogs({isActive}) {
 
     return (
         <Card
-            className={`  shadow-none   select-none rounded-none  gap-1 flex  flex-1 w-full  pl-4  ${isActive ? "opacity-100" : " opacity-70"}`}>
+            className={`  shadow-none  select-none rounded-none  gap-1 flex w-full  pl-4  ${isActive ? "opacity-100" : " opacity-70"}`}>
             <div
                 className="p-3 flex w-full gap-2 h-auto overflow-x-hidden no-scrollbar "
                 style={{cursor: isDragging ? 'grabbing' : 'grab'}}
@@ -97,7 +91,7 @@ export default function JeepLogs({isActive}) {
             </div>
 
 
-            <div className="h-full   w-full   flex-1 flex">
+            <div className="h-full w-full  flex-1 flex">
 
                 {RenderLogs()}
 
